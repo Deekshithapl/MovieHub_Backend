@@ -32,10 +32,12 @@ app.use('/api/invoice', invoiceRoutes);
 
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGO_URL)
-  .then(() => console.log("MongoDB Connected"))
-  .catch(err => console.log("Mongo Error:", err));
+console.log("Connecting to MongoDB...");
 
+mongoose.connect(process.env.MONGO_URL)
+  .then(() => console.log("✅ MongoDB Connected"))
+  .catch(err => console.log("❌ Mongo Error:", err));
+  
 // Start Server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
